@@ -1,72 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            overflow: hidden; /* Ngăn chặn hiển thị thanh cuộn */
+        }
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+        header {
+            background-color: #e74c3c;
+            padding: 20px;
+            color: #fff;
+            font-size: 24px;
+        }
 
-    <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-    <title>Hello World!</title>
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+        footer {
+            background-color: #2c3e50;
+            padding: 10px;
+            color: #fff;
+        }
 
-    <!-- The website JavaScript file -->
-    <script src="/script.js" defer></script>
-  </head>
-  <body>
-    <!--
-      The body includes the content you see in the page
-      Each element is defined using tags, like this <div></div>
-      The attributes like class="wrapper" let us style elements in the CSS
-    -->
-    <div class="wrapper">
-      <div class="content" role="main">
-        <h1 class="title">Hello World!</h1>
-        <img
-          src="https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2Fillustration.svg?v=1618177344016"
-          class="illustration"
-          alt="Editor illustration"
-          title="Click the image!"
-        />
-        <div class="instructions">
-          <h2>Using this project</h2>
-          <p>
-            This is the Glitch <strong>Hello Website</strong> project. You can
-            use it to build your own site. Check out the code in the editor and open
-            the <span class="fileopener" data-file="TODO.md" data-line="0"
-              >TODO</span> for next steps!
-          </p>
-          <!--  🚧 TODO: ADD BUTTON HERE -->
+        /* Hiệu ứng tuyết rơi */
+        .snowflake {
+            position: absolute;
+            color: #fff;
+            font-size: 20px;
+            pointer-events: none;
+            animation: snowfall linear infinite;
+        }
 
-          <!-- Once you've added the button from TODO.md, click it in the page -->
-          <!-- Check out the function in script.js to see how it works -->
-        </div>
-      </div>
-    </div>
-    <!-- The footer holds our remix button — you can keep or delete it ✂ -->
-    <footer class="footer">
-      <div class="links"></div>
-      <a
-        class="btn--remix"
-        target="_top"
-        href="https://glitch.com/edit/#!/remix/glitch-hello-website"
-      >
-        <img
-          src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
-          alt=""
-        />
-        Remix on Glitch
-      </a>
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Merry Christmas!</h1>
+    </header>
+
+    <section>
+        <h2>Welcome to the Christmas Celebration!</h2>
+        <p>This is a festive HTML page to celebrate Christmas. Feel the joy and warmth of the holiday season!</p>
+        <img src="https://example.com/christmas_tree.jpg" alt="Christmas Tree">
+    </section>
+
+    <footer>
+        <p>© 2023 Your Name. All rights reserved.</p>
     </footer>
-  </body>
+
+    <!-- Hiệu ứng tuyết rơi -->
+    <script>
+        // Tạo tuyết rơi
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            document.body.appendChild(snowflake);
+
+            // Khi tuyết rơi đến dưới cùng, hủy nó và tạo một cái mới
+            snowflake.addEventListener('animationiteration', () => {
+                snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            });
+
+            return snowflake;
+        }
+
+        // Tạo 50 tuyết rơi ban đầu
+        for (let i = 0; i < 50; i++) {
+            createSnowflake();
+        }
+    </script>
+
+</body>
 </html>
