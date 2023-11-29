@@ -54,9 +54,22 @@
             pointer-events: none;
             z-index: 9999;
         }
+
+        /* Responsive Image */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Kiểu dáng cho thiết bị di động */
+        @media only screen and (max-width: 600px) {
+            img {
+                width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của màn hình */
+            }
+        }
     </style>
 </head>
-<body onload="playMusic()">
+<body>
 
     <div id="giftBox">
         <img src="https://th.bing.com/th/id/R.d1f1f5c95c76969bf1a35d273a5e9883?rik=%2fGUFBM87irVvOQ&pid=ImgRaw" alt="Gift Box" width="100" height="100">
@@ -70,12 +83,12 @@
         <section>
             <h2>Welcome to the Christmas Celebration!</h2>
             <p>This is a festive HTML page to celebrate Christmas. Feel the joy and warmth of the holiday season!</p>
-            <img width = "800" src="https://images7.alphacoders.com/464/464603.jpg" alt="Christmas Tree">
+            <img width="800" src="https://images7.alphacoders.com/464/464603.jpg" alt="Christmas Tree">
         </section>
 
         <!-- Thẻ âm thanh -->
-        <audio id="backgroundMusic" controls>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <audio id="backgroundMusic" controls autoplay loop>
+            <source src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/THE%20REAL%20SLIM%20SHADY%20%20Medieval%20Bardcore%20Version%20%20Eminem%20vs%20Beedle%20the%20Bardcore.mp3?v=1701275390604" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
 
@@ -85,45 +98,46 @@
     </div>
 
     <script>
-        function playMusic() {
-            // Phát âm thanh khi trang được tải
+        document.getElementById('giftBox').addEventListener('click', function() {
+            // Ẩn ảnh hộp quà
+            this.style.display = 'none';
+            
+            // Hiển thị nội dung chính của trang
+            document.getElementById('mainContent').style.display = 'block';
+
+            // Ẩn âm thanh
             const backgroundMusic = document.getElementById('backgroundMusic');
-            backgroundMusic.play();
+            backgroundMusic.style.display = 'none';
 
-            document.getElementById('giftBox').addEventListener('click', function() {
-                // Ẩn ảnh hộp quà
-                this.style.display = 'none';
+            // Thêm lớp chứa hiệu ứng tuyết
+            const snowfallContainer = document.createElement('div');
+            snowfallContainer.className = 'snowfall-container';
+            document.body.appendChild(snowfallContainer);
 
-                // Hiển thị nội dung chính của trang
-                document.getElementById('mainContent').style.display = 'block';
+            // Tạo tuyết rơi
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * window.innerWidth + 'px';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowfallContainer.appendChild(snowflake);
 
-                // Thêm lớp chứa hiệu ứng tuyết
-                const snowfallContainer = document.createElement('div');
-                snowfallContainer.className = 'snowfall-container';
-                document.body.appendChild(snowfallContainer);
-
-                // Tạo tuyết rơi
-                function createSnowflake() {
-                    const snowflake = document.createElement('div');
-                    snowflake.className = 'snowflake';
-                    snowflake.innerHTML = '❄';
+                snowflake.addEventListener('animationiteration', () => {
                     snowflake.style.left = Math.random() * window.innerWidth + 'px';
-                    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-                    snowfallContainer.appendChild(snowflake);
+                });
 
-                    snowflake.addEventListener('animationiteration', () => {
-                        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-                    });
+                return snowflake;
+            }
 
-                    return snowflake;
-                }
+            // Tạo 50 tuyết rơi ban đầu
+            for (let i = 0; i < 50; i++) {
+                createSnowflake();
+            }
 
-                // Tạo 50 tuyết rơi ban đầu
-                for (let i = 0; i < 50; i++) {
-                    createSnowflake();
-                }
-            });
-        }
+            // Phát âm thanh khi mở hộp quà
+            backgroundMusic.play();
+        });
     </script>
 
 </body>
