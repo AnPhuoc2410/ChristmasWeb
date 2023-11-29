@@ -56,7 +56,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="playMusic()">
 
     <div id="giftBox">
         <img src="https://th.bing.com/th/id/R.d1f1f5c95c76969bf1a35d273a5e9883?rik=%2fGUFBM87irVvOQ&pid=ImgRaw" alt="Gift Box" width="100" height="100">
@@ -70,11 +70,14 @@
         <section>
             <h2>Welcome to the Christmas Celebration!</h2>
             <p>This is a festive HTML page to celebrate Christmas. Feel the joy and warmth of the holiday season!</p>
-            <img width="800" src="https://images7.alphacoders.com/464/464603.jpg" alt="Christmas Tree">
+            <img width = "800" src="https://images7.alphacoders.com/464/464603.jpg" alt="Christmas Tree">
         </section>
 
-        <!-- Thẻ nhúng video từ YouTube -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3okjFDo2aSU" frameborder="0" allowfullscreen></iframe>
+        <!-- Thẻ âm thanh -->
+        <audio id="backgroundMusic" controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
 
         <footer>
             <p>© 2023 Phuoc. Merry Christmas.</p>
@@ -82,39 +85,45 @@
     </div>
 
     <script>
-        document.getElementById('giftBox').addEventListener('click', function() {
-            // Ẩn ảnh hộp quà
-            this.style.display = 'none';
-            
-            // Hiển thị nội dung chính của trang
-            document.getElementById('mainContent').style.display = 'block';
+        function playMusic() {
+            // Phát âm thanh khi trang được tải
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
 
-            // Thêm lớp chứa hiệu ứng tuyết
-            const snowfallContainer = document.createElement('div');
-            snowfallContainer.className = 'snowfall-container';
-            document.body.appendChild(snowfallContainer);
+            document.getElementById('giftBox').addEventListener('click', function() {
+                // Ẩn ảnh hộp quà
+                this.style.display = 'none';
 
-            // Tạo tuyết rơi
-            function createSnowflake() {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                snowflake.innerHTML = '❄';
-                snowflake.style.left = Math.random() * window.innerWidth + 'px';
-                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-                snowfallContainer.appendChild(snowflake);
+                // Hiển thị nội dung chính của trang
+                document.getElementById('mainContent').style.display = 'block';
 
-                snowflake.addEventListener('animationiteration', () => {
+                // Thêm lớp chứa hiệu ứng tuyết
+                const snowfallContainer = document.createElement('div');
+                snowfallContainer.className = 'snowfall-container';
+                document.body.appendChild(snowfallContainer);
+
+                // Tạo tuyết rơi
+                function createSnowflake() {
+                    const snowflake = document.createElement('div');
+                    snowflake.className = 'snowflake';
+                    snowflake.innerHTML = '❄';
                     snowflake.style.left = Math.random() * window.innerWidth + 'px';
-                });
+                    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                    snowfallContainer.appendChild(snowflake);
 
-                return snowflake;
-            }
+                    snowflake.addEventListener('animationiteration', () => {
+                        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+                    });
 
-            // Tạo 50 tuyết rơi ban đầu
-            for (let i = 0; i < 50; i++) {
-                createSnowflake();
-            }
-        });
+                    return snowflake;
+                }
+
+                // Tạo 50 tuyết rơi ban đầu
+                for (let i = 0; i < 50; i++) {
+                    createSnowflake();
+                }
+            });
+        }
     </script>
 
 </body>

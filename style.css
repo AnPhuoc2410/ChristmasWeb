@@ -1,0 +1,49 @@
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #giftBox {
+            cursor: pointer;
+        }
+
+        #mainContent {
+            display: none;
+        }
+
+        /* Hiệu ứng tuyết rơi */
+        .snowflake {
+            position: absolute;
+            color: #ffffff;
+            font-size: 20px;
+            pointer-events: none;
+            animation: snowfall linear infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Lớp chứa hiệu ứng tuyết */
+        .snowfall-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
