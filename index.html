@@ -10,7 +10,7 @@
       type="text/css"
     />
     <link rel="stylesheet" type="text/css" href="button.css" />
-    <link rel="stylesheet" href="lights.scss">
+    <link rel="stylesheet" href="lights.scss" />
     <title>Merry Christmas!</title>
     <style>
       body {
@@ -68,7 +68,7 @@
         pointer-events: none;
         z-index: 9999;
       }
-      
+
       img {
         max-width: 100%;
         height: auto;
@@ -80,13 +80,14 @@
         }
       }
       .header-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    z-index: 1; /* Đảm bảo hình ảnh ở phía sau nội dung khác */
-}
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0.5;
+        z-index: 1; /* Đảm bảo hình ảnh ở phía sau nội dung khác */
+      }
 
       .centered-images {
         position: relative;
@@ -116,7 +117,11 @@
     </div>
 
     <div id="mainContent">
-      <img src="https://media.tenor.com/images/500e4d629273e180848407d9995a87e1/tenor.gif" alt="Header Image" class="header-image">
+      <img
+        src="https://media.tenor.com/images/500e4d629273e180848407d9995a87e1/tenor.gif"
+        alt="Header Image"
+        class="header-image"
+      />
       <header>
         <h1>Merry Christmas!</h1>
       </header>
@@ -124,10 +129,12 @@
       <section>
         <h2>Giáng Sinh is coming!</h2>
         <p>
-          Giáng Sinh an lành và ấm áp nhất đến với bạn và những người thân yêu ❤❤
+          Giáng Sinh an lành và ấm áp nhất đến với bạn và những người thân yêu
+          ❤❤
         </p>
         <img
-          width="600" heigth = "1000"
+          width="600"
+          heigth="1000"
           src="https://images7.alphacoders.com/464/464603.jpg"
           alt="Christmas Tree"
         />
