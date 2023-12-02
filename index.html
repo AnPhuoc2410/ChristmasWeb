@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            background: url('https://www.wallpaperup.com/uploads/wallpapers/2017/12/15/1167470/61dac6f197d1c98765c550d38b4f4d71.jpg') no-repeat center center fixed;
+            background-size: cover;
             text-align: center;
             overflow: hidden;
             margin: 0;
@@ -71,6 +72,28 @@
                 width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của màn hình */
             }
         }
+       /* Các vị trí ảnh */
+        #imageTopLeft {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #imageTopRight {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        #imageCenter1 {
+            display: block;
+            margin: 20px auto;
+        }
+
+        #imageCenter2 {
+            display: block;
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
@@ -88,6 +111,11 @@
             <h2>Welcome to the Christmas Celebration!</h2>
             <p>This is a festive HTML page to celebrate Christmas. Feel the joy and warmth of the holiday season!</p>
             <img width="100" src="https://media1.tenor.com/images/1db579376a35a838344de791897e24b5/tenor.gif?itemid=13218757" alt="Christmas Tree">
+            <img id="imageTopLeft" src="https://media1.tenor.com/images/1db579376a35a838344de791897e24b5/tenor.gif?itemid=13218757" alt="Artwork 1" width="100">
+            <img id="imageTopRight" src="https://media1.tenor.com/images/1db579376a35a838344de791897e24b5/tenor.gif?itemid=13218757" alt="Artwork 2" width="100">
+            <img id="imageCenter1" src="https://media1.tenor.com/images/1db579376a35a838344de791897e24b5/tenor.gif?itemid=13218757" alt="Artwork 3" width="100">
+            <img id="imageCenter2" src="https://media1.tenor.com/images/1db579376a35a838344de791897e24b5/tenor.gif?itemid=13218757" alt="Artwork 4" width="100">
+           
           
         </section>
 
