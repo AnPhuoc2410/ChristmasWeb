@@ -93,32 +93,6 @@
             width: 100px;
         }
 
-        /* Styles for the Christmas Button */
-        .bg {
-            background-color: #1e90ff;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .centerer {
-            text-align: center;
-        }
-
-        .button {
-            font-family: 'Lobster', cursive;
-            font-size: 2em;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #e63946;
-        }
     </style>
 </head>
 
@@ -157,6 +131,9 @@
     </div>
 
     <script>
+      //Dừng nhạc trước khi bấm
+      document.getElementById('backgroundMusic').pause();
+      
         document.getElementById('christmasButton').addEventListener('click', function () {
             // Ẩn button Christmas
             this.style.display = 'none';
@@ -166,7 +143,7 @@
 
             // Hiện âm thanh
             const backgroundMusic = document.getElementById('backgroundMusic');
-            backgroundMusic.style.display = 'block';
+            backgroundMusic.style.display = 'none';
             backgroundMusic.play();
 
             // Thêm lớp chứa hiệu ứng tuyết
