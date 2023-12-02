@@ -18,6 +18,11 @@
             align-items: center;
             justify-content: center;
         }
+      /* CSS thêm vào stylesheet của bạn */
+body.initial-background {
+    background-image: none !important;
+}
+
 
         #giftBox {
             cursor: pointer;
@@ -88,11 +93,13 @@
         #imageCenter1 {
             display: block;
             margin: 20px auto;
+          left:50px;
         }
 
         #imageCenter2 {
             display: block;
             margin: 20px auto;
+          left:50px;
         }
     </style>
 </head>
@@ -134,6 +141,9 @@
         // Ẩn âm thanh khi tải trang
 document.getElementById('backgroundMusic').pause();
 
+// Thêm lớp tạm thời vào body khi trang được tải
+document.body.classList.add('initial-background');
+
 document.getElementById('giftBox').addEventListener('click', function () {
     // Ẩn ảnh hộp quà
     this.style.display = 'none';
@@ -172,11 +182,10 @@ document.getElementById('giftBox').addEventListener('click', function () {
         createSnowflake();
     }
 
-    // Hiển thị background khi mở hộp quà
-    document.body.style.backgroundImage = 'url("https://www.wallpaperup.com/uploads/wallpapers/2017/12/15/1167470/61dac6f197d1c98765c550d38b4f4d71.jpg")';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundSize = 'cover';
+    // Loại bỏ lớp tạm thời từ body
+    document.body.classList.remove('initial-background');
 });
+
 
 
     </script>
