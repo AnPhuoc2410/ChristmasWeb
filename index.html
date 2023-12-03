@@ -112,19 +112,19 @@
         pointer-events: none;
         width: auto;
       }
-      .moon-image{
+      .tree-image{
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
         position: absolute;
         z-index: 1;
-        top: 50%;
-        left: 80%;
+        top: 75%;
+        left: 38%;
         transform: translate(-50%, -50%);
-        margin: -15px 0 0 0;
+        margin: -30px 0 0 0;
         padding: 0;
         pointer-events: none;
-        width:600;
+        width:900;
       }
       .snowman-image {
         text-align: center;
@@ -133,6 +133,20 @@
         position: absolute;
         z-index: 1;
         top: 78%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        margin: -15px 0 0 0;
+        padding: 0;
+        pointer-events: none;
+        width: auto;
+      }
+      .sleigh-image{
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        top: 40%;
         left: 60%;
         transform: translate(-50%, -50%);
         margin: -15px 0 0 0;
@@ -149,10 +163,13 @@
       }
 
       #imageSnowman,
-      #imageSanta,
-      #imageMoon,
-      #imageCenter2 {
+      #imageSanta{
         width: 100px;
+      }
+      
+      #imageTree,
+      #imageSleigh {
+        width: 200px;
       }
     </style>
   </head>
@@ -220,8 +237,6 @@
           ❤❤
         </p>
         <img
-          width="600"
-          heigth="1000"
           src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/381e0d5c-78a9-4910-bcd8-95656c7b7e2e.image.png?v=1701575288687"
           alt="Christmas Tree"
         />
@@ -239,10 +254,16 @@
             class="santaclaus-image responsive-image"
           />
           <img
-            id="imageMoon"
+            id="imageTree"
             src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/747d19fa-008e-45d9-ac98-d391dca2289e.image.png?v=1701575380816"
             alt="Artwork 3"
-            class="moon-image responsive-image"
+            class="tree-image responsive-image"
+          />
+          <img
+            id="imageSleigh"
+            src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/a970702f-ddf0-4990-ba46-59fe85c98aa5.image.png?v=1701576629574"
+            alt="Artwork 4"
+            class="sleigh-image responsive-image"
           />
         </div>
       </section>
