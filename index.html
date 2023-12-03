@@ -75,19 +75,19 @@
       }
 
       @media only screen and (max-width: 600px) {
+        body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
         img {
           width: 100%;
         }
       }
-      .header-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        opacity: 0.5;
-        z-index: 1; /* Đảm bảo hình ảnh ở phía sau nội dung khác */
-      }
+      .responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Để căn giữa hình ảnh trong container cha (nếu có) */
+}
 
       .centered-images {
         position: relative;
@@ -200,6 +200,7 @@
           ❤❤
         </p>
         <img
+          class="responsive-image"
           width="600"
           heigth="1000"
           src="https://images7.alphacoders.com/464/464603.jpg"
@@ -207,18 +208,17 @@
         />
         <div class="noel-images">
           <img
-            id="imageSnowman"
+            id="responsive-image imageSnowman"
             src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/snowman.png?v=1701512663318"
             alt="Artwork 1"
             class="snowman-image"
           />
           <img
-            id="imageSanta"
+            id="responsive-image imageSanta"
             src="https://1.bp.blogspot.com/-EpBsrI58yRk/WFlHh6XmTmI/AAAAAAAADxA/5oFOsi3UmxMgF5gw6Yjk_M-w_K7ICGL_gCLcB/s1600/santa_claus_png_clipart_image.png"
             alt="Artwork 2"
             class="santaclaus-image"
           />
-          
         </div>
       </section>
 
