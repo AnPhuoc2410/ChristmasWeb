@@ -2,17 +2,21 @@
 <html lang="vn">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=auto, initial-scale=1.0" /> 
+    <meta name="viewport" content="width=auto, initial-scale=1.0" />
     <title>Merry Christmas!</title>
     <link
       href="https://fonts.googleapis.com/css?family=Lobster"
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet"  href="button.css" />
+    <link rel="stylesheet" href="button.css" />
     <link rel="stylesheet" href="lightss.css" />
-    
-    <link rel="icon" type="image/png" href="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/cee355cf-23b9-46b2-a0f5-c87469d4c96c.image.png?v=1701572732607">
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/cee355cf-23b9-46b2-a0f5-c87469d4c96c.image.png?v=1701572732607"
+    />
     <style>
       body {
         font-family: "Arial", sans-serif;
@@ -85,11 +89,11 @@
       }
       .responsive-image {
         position: relative;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Để căn giữa hình ảnh trong container cha (nếu có) */
-}
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto; /* Để căn giữa hình ảnh trong container cha (nếu có) */
+      }
 
       .centered-images {
         position: relative;
@@ -106,7 +110,21 @@
         margin: -15px 0 0 0;
         padding: 0;
         pointer-events: none;
-        width: 100%;
+        width: auto;
+      }
+      .moon-image{
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+        margin: -15px 0 0 0;
+        padding: 0;
+        pointer-events: none;
+        width:600;
       }
       .snowman-image {
         text-align: center;
@@ -120,7 +138,7 @@
         margin: -15px 0 0 0;
         padding: 0;
         pointer-events: none;
-        width: 100%;
+        width: auto;
       }
 
       .centered-image {
@@ -132,7 +150,7 @@
 
       #imageSnowman,
       #imageSanta,
-      #imageCenter1,
+      #imageMoon,
       #imageCenter2 {
         width: 100px;
       }
@@ -219,6 +237,12 @@
             src="https://1.bp.blogspot.com/-EpBsrI58yRk/WFlHh6XmTmI/AAAAAAAADxA/5oFOsi3UmxMgF5gw6Yjk_M-w_K7ICGL_gCLcB/s1600/santa_claus_png_clipart_image.png"
             alt="Artwork 2"
             class="santaclaus-image responsive-image"
+          />
+          <img
+            id="imageMoon"
+            src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/1a36f71d-3fda-4674-9e40-1601ed62d814.image.png?v=1701574343090"
+            alt="Artwork 3"
+            class="moon-image responsive-image"
           />
         </div>
       </section>
