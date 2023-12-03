@@ -92,6 +92,20 @@
       .centered-images {
         position: relative;
       }
+      .snowman-image {
+        text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: -15px 0 0 0;
+  padding: 0;
+  pointer-events: none;
+  width: 100%;
+      }
 
       .centered-image {
         position: absolute;
@@ -182,7 +196,7 @@
             id="imageTopLeft"
             src="https://noel-phuduc.vercel.app/image/snowman.png"
             alt="Artwork 1"
-            class="centered-images"
+            class="snowman-image"
           />
           <img
             id="imageTopRight"
