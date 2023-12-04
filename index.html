@@ -2,7 +2,7 @@
 <html lang="vn">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Merry Christmas!</title>
     <link
       href="https://fonts.googleapis.com/css?family=Lobster"
@@ -86,9 +86,7 @@
         img {
           width: 100%;
         }
-        
       }
-      
 
       .centered-images {
         position: relative;
@@ -122,37 +120,44 @@
         width: 900;
       }
       .gift-box {
-    position: absolute;
-    cursor: pointer;
-}
+        position: absolute;
+        cursor: pointer;
+      }
 
-#giftBox1 {
-    top: 60%;
-    left: 35%;
-}
+      #giftBox1 {
+        top: 60%;
+        left: 40%;
+        z-index: 1;
+        width: 10%;
+      }
 
-#giftBox2 {
-    top: 50%;
-    left: 60%;
-}
+      #giftBox2 {
+        top: 60%;
+        left: 50%;
+        z-index: 1;
+        width: 10%;
+      }
       .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
 
-.large-gift-image {
-    max-width: 100%;
-    max-height: 100%;
-}
-
+      .large-gift-image {
+        max-width: 80%;
+        max-height: 80%;
+        margin-bottom: 20px;
+      }
 
       .snowman-image {
         text-align: center;
@@ -288,19 +293,26 @@
             class="tree-image responsive-image"
           />
           <div class="gift-box" id="giftBox1">
-    <img src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/9f3dff68-cbc9-47a2-ae09-08c24f55fb7f.image.png?v=1701676663630" alt="Gift 1" class="gift-image" />
-</div>
+            <img
+              src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/9f3dff68-cbc9-47a2-ae09-08c24f55fb7f.image.png?v=1701676663630"
+              alt="Gift 1"
+              class="gift-image responsive-image"
+            />
+          </div>
 
-<div class="gift-box" id="giftBox2">
-    <img src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/9f3dff68-cbc9-47a2-ae09-08c24f55fb7f.image.png?v=1701676663630" alt="Gift 2" class="gift-image" />
-</div>
+          <div class="gift-box" id="giftBox2">
+            <img
+              src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/9f3dff68-cbc9-47a2-ae09-08c24f55fb7f.image.png?v=1701676663630"
+              alt="Gift 2"
+              class="gift-image responsive-image"
+            />
+          </div>
           <img
             id="imageSleigh"
             src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/a970702f-ddf0-4990-ba46-59fe85c98aa5.image.png?v=1701576629574"
             alt="Artwork 4"
             class="sleigh-image responsive-image"
           />
-          
         </div>
       </section>
 
@@ -320,6 +332,62 @@
     <script>
       //Dừng nhạc trước khi bấm
       document.getElementById("backgroundMusic").pause();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Lấy danh sách các hộp quà
+        const giftBoxes = document.querySelectorAll(".gift-box");
+
+        // Thêm sự kiện cho mỗi hộp quà
+        giftBoxes.forEach(function (giftBox, index) {
+          giftBox.addEventListener("click", function () {
+            // Hiển thị hình ảnh và câu chúc tương ứng với hộp quà
+            showGiftContent(index + 1); // Chú ý: index + 1 vì index bắt đầu từ 0
+          });
+        });
+
+        // Hàm hiển thị hình ảnh và câu chúc tương ứng với hộp quà
+        function showGiftContent(giftNumber) {
+          // Tạo modal chứa hình ảnh và câu chúc
+          const modal = document.createElement("div");
+          modal.classList.add("modal");
+
+          // Hình ảnh quà
+          const giftImage = document.createElement("img");
+          giftImage.src = `https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/snowman.png?v=1701512663318`; // Thay đổi đường link phù hợp
+          giftImage.alt = `Large Gift ${giftNumber}`;
+          giftImage.classList.add("large-gift-image");
+
+          // Câu chúc
+          const greetingText = document.createElement("p");
+          greetingText.innerText = getGreetingText(giftNumber); // Hàm này trả về câu chúc tương ứng
+
+          // Thêm hình ảnh và câu chúc vào modal
+          modal.appendChild(giftImage);
+          modal.appendChild(greetingText);
+
+          // Hiển thị modal trong cửa sổ
+          document.body.appendChild(modal);
+
+          // Thêm sự kiện để đóng modal khi bấm vào hình ảnh
+          giftImage.addEventListener("click", function () {
+            document.body.removeChild(modal);
+          });
+        }
+
+        // Hàm trả về câu chúc tương ứng với hộp quà
+        function getGreetingText(giftNumber) {
+          // Bạn có thể thay đổi câu chúc tại đây cho mỗi hộp quà
+          switch (giftNumber) {
+            case 1:
+              return "Chúc mừng bạn nhận được quà đặc biệt!";
+            case 2:
+              return "Merry Christmas và Happy New Year!";
+            // Thêm câu chúc cho các hộp quà khác nếu cần
+            default:
+              return "Chúc bạn có một mùa Giáng Sinh tràn đầy niềm vui!";
+          }
+        }
+      });
 
       document
         .getElementById("christmasButton")
@@ -364,39 +432,6 @@
 
           // Loại bỏ lớp tạm thời từ body
           document.body.classList.remove("initial-background");
-        
-        document.addEventListener("DOMContentLoaded", function () {
-    // Lấy danh sách các hộp quà
-    const giftBoxes = document.querySelectorAll(".gift-box");
-
-    // Thêm sự kiện cho mỗi hộp quà
-    giftBoxes.forEach(function (giftBox, index) {
-        giftBox.addEventListener("click", function () {
-            // Hiển thị hình ảnh tương ứng với hộp quà
-            showGiftImage(index + 1); // Chú ý: index + 1 vì index bắt đầu từ 0
-        });
-    });
-
-    // Hàm hiển thị hình ảnh tương ứng với hộp quà
-    function showGiftImage(giftNumber) {
-        const giftImage = document.createElement("img");
-        giftImage.src = `link_to_large_gift_image${giftNumber}.jpg`; // Thay đổi đường link phù hợp
-        giftImage.alt = `Large Gift ${giftNumber}`;
-        giftImage.classList.add("large-gift-image");
-
-        // Hiển thị hình ảnh trong một cửa sổ modal (popup)
-        const modal = document.createElement("div");
-        modal.classList.add("modal");
-        modal.appendChild(giftImage);
-        document.body.appendChild(modal);
-
-        // Thêm sự kiện để đóng modal khi bấm vào hình ảnh
-        giftImage.addEventListener("click", function () {
-            document.body.removeChild(modal);
-        });
-    }
-});
-
         });
     </script>
   </body>
