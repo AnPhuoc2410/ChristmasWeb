@@ -87,10 +87,60 @@
           width: 100%;
         }
       }
+      /* iPhone 6, 6s, 7, 8 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  
+  body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
+}
 
-      .centered-images {
+/* iPhone X, XS, 11 Pro */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
+}
+
+/* iPhone XR, 11 */
+@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
+}
+
+/* iPhone XS Max, 11 Pro Max */
+@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) {
+  body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
+}
+      /* Xiaomi 12T Pro */
+@media only screen and (max-width: 1220px) {
+        body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
+  .centered-images {
         position: relative;
+    left:10%;
       }
+      }
+     
       .santaclaus-image {
         text-align: center;
         white-space: nowrap;
