@@ -32,6 +32,44 @@
         align-items: center;
         justify-content: center;
       }
+      #chat-container {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 300px;
+      }
+
+      #chat-messages {
+        max-height: 200px;
+        overflow-y: auto;
+        padding: 10px;
+      }
+
+      #chat-input {
+        display: flex;
+        padding: 5px;
+      }
+
+      #message-input {
+        flex: 1;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      #send-button {
+        padding: 5px;
+        margin-left: 5px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
 
       body.initial-background {
         background-image: none !important;
@@ -88,59 +126,58 @@
         }
       }
       /* iPhone 6, 6s, 7, 8 */
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-  
-  body {
-          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
-        }
-        img {
-          width: 100%;
-        }
-}
-
-/* iPhone X, XS, 11 Pro */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-  body {
-          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
-        }
-        img {
-          width: 100%;
-        }
-}
-
-/* iPhone XR, 11 */
-@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 2) {
-  body {
-          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
-        }
-        img {
-          width: 100%;
-        }
-}
-
-/* iPhone XS Max, 11 Pro Max */
-@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) {
-  body {
-          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
-        }
-        img {
-          width: 100%;
-        }
-}
-      /* Xiaomi 12T Pro */
-@media only screen and (max-width: 1220px) {
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         body {
           background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
         }
         img {
           width: 100%;
         }
-  .centered-images {
-        position: relative;
-    left:10%;
       }
+
+      /* iPhone X, XS, 11 Pro */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+        body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
       }
-     
+
+      /* iPhone XR, 11 */
+      @media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
+      }
+
+      /* iPhone XS Max, 11 Pro Max */
+      @media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) {
+        body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
+      }
+      /* Xiaomi 12T Pro */
+      @media only screen and (max-width: 1220px) {
+        body {
+          background-size: auto; /* Thay đổi background-size để ảnh nền không bị co lại */
+        }
+        img {
+          width: 100%;
+        }
+        .centered-images {
+          position: relative;
+          left: 10%;
+        }
+      }
+
       .santaclaus-image {
         text-align: center;
         white-space: nowrap;
@@ -366,6 +403,17 @@
           Giáng Sinh an lành và ấm áp nhất đến với bạn và những người thân yêu
           ❤❤
         </p>
+        <div id="chat-container">
+          <div id="chat-messages"></div>
+          <div id="chat-input">
+            <input
+              type="text"
+              id="message-input"
+              placeholder="Nhập tin nhắn..."
+            />
+            <button id="send-button" onclick="sendMessage()">Gửi</button>
+          </div>
+        </div>
         <img
           src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/381e0d5c-78a9-4910-bcd8-95656c7b7e2e.image.png?v=1701575288687"
           alt="Christmas Tree background"
@@ -547,6 +595,30 @@
           }
         }
       });
+
+      function sendMessage() {
+        const messageInput = document.getElementById("message-input");
+        const chatMessages = document.getElementById("chat-messages");
+
+        // Lấy nội dung tin nhắn từ input
+        const message = messageInput.value;
+
+        // Kiểm tra xem tin nhắn có giá trị không
+        if (message.trim() !== "") {
+          // Hiển thị tin nhắn trong khung chat
+          const messageElement = document.createElement("div");
+          messageElement.innerText = message;
+          chatMessages.appendChild(messageElement);
+          // Lưu trữ tin nhắn vào LocalStorage
+          const storedMessages =
+            JSON.parse(localStorage.getItem("chatMessages")) || [];
+          storedMessages.push(message);
+          localStorage.setItem("chatMessages", JSON.stringify(storedMessages));
+
+          // Xóa nội dung trong input sau khi gửi
+          messageInput.value = "";
+        }
+      }
 
       document
         .getElementById("christmasButton")
