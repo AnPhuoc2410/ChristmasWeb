@@ -345,17 +345,22 @@
           });
         });
 
+        
         // Hàm hiển thị hình ảnh và câu chúc tương ứng với hộp quà
         function showGiftContent(giftNumber) {
+          // Lấy tham chiếu đến hộp quà
+    const giftBox = document.getElementById(`giftBox${giftNumber}`);
+    // Lấy đường link hình ảnh từ thuộc tính data-image
+    const giftImageSrc = giftBox.getAttribute("data-image");
           // Tạo modal chứa hình ảnh và câu chúc
           const modal = document.createElement("div");
           modal.classList.add("modal");
 
           // Hình ảnh quà
-          const giftImage = document.createElement("img");
-          giftImage.src = `https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/snowman.png?v=1701512663318`; // Thay đổi đường link phù hợp
-          giftImage.alt = `Large Gift ${giftNumber}`;
-          giftImage.classList.add("large-gift-image");
+    const giftImage = document.createElement("img");
+    giftImage.src = giftImageSrc;
+    giftImage.alt = `Large Gift ${giftNumber}`;
+    giftImage.classList.add("large-gift-image");
 
           // Câu chúc
           const greetingText = document.createElement("p");
@@ -374,6 +379,8 @@
           });
         }
 
+        
+        
         // Hàm trả về câu chúc tương ứng với hộp quà
         function getGreetingText(giftNumber) {
           // Bạn có thể thay đổi câu chúc tại đây cho mỗi hộp quà
