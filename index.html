@@ -145,13 +145,13 @@
       }
       #giftBox4 {
         bottom: 15%;
-        left: 45%;
+        left: 50%;
         z-index: 1;
         width: 10%;
       }
       #giftBox5 {
         bottom: 15%;
-        left: 50%;
+        left: 55%;
         z-index: 1;
         width: 10%;
       }
@@ -219,6 +219,20 @@
         pointer-events: none;
         width: auto;
       }
+      .deer-image{
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        margin: -15px 0 0 0;
+        padding: 0;
+        pointer-events: none;
+        width: auto;
+      }
 
       .centered-image {
         position: absolute;
@@ -228,7 +242,7 @@
       }
 
       #imageSnowman,
-      #imageSanta {
+      #imageSanta,#imageDeer {
         width: 20%;
       }
 
@@ -323,6 +337,12 @@
             src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/5aa7b117-4465-4836-a782-e5c6f0e53c7f.image.png?v=1701677791537"
             alt="Artwork 3"
             class="tree-image responsive-image"
+          />
+          <img
+            id="imageDeer"
+            src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/cf44ce2a-332a-4514-832a-6a53dcf1c765.image.png?v=1701685506464"
+            alt="Artwork 5"
+            class="deer-image responsive-image"
           />
           <div
             class="gift-box"
@@ -461,9 +481,15 @@
           // Bạn có thể thay đổi câu chúc tại đây cho mỗi hộp quà
           switch (giftNumber) {
             case 1:
-              return "Chúc mừng bạn nhận được quà đặc biệt!";
+              return "Chúc mừng Giáng Sinh! Chúc bạn và gia đình có một kỳ nghỉ ấm áp, hạnh phúc và tràn đầy yêu thương!";
             case 2:
-              return "Merry Christmas và Happy New Year!";
+              return "Chúc bạn có một mùa Giáng Sinh tràn đầy niềm vui, hạnh phúc và nhiều điều kỳ diệu!";
+              case 3:
+              return "Chúc mừng Giáng Sinh! Hãy tận hưởng những khoảnh khắc đẹp nhất cùng những người bạn yêu thương!";
+              case 4:
+              return "Chúc bạn có một Giáng Sinh tràn đầy ân sủng và tình thương!";
+              case 5:
+              return "Giáng Sinh là thời điểm tuyệt vời để chia sẻ tình yêu và niềm vui. Chúc bạn và gia đình mình có một kỳ nghỉ tràn ngập hạnh phúc!";
             // Thêm câu chúc cho các hộp quà khác nếu cần
             default:
               return "Chúc bạn có một mùa Giáng Sinh tràn đầy niềm vui!";
