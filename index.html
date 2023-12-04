@@ -125,15 +125,15 @@
       }
 
       #giftBox1 {
-        bottom: 10%;
-        left: 20%;
+        bottom: 15%;
+        left: 25%;
         z-index: 1;
         width: 10%;
       }
 
       #giftBox2 {
-        top: 60%;
-        left: 50%;
+        bottom: 15%;
+        left: 35%;
         z-index: 1;
         width: 10%;
       }
@@ -385,9 +385,8 @@
 
           // Câu chúc
           const greetingText = document.createElement("p");
-    greetingText.innerText = getGreetingText(giftNumber);
-    greetingText.classList.add("greeting-text"); //trả về câu chúc bằng class "greeting-text"
-          
+          greetingText.innerText = getGreetingText(giftNumber);
+          greetingText.classList.add("greeting-text"); //trả về câu chúc bằng class "greeting-text"
 
           // Thêm hình ảnh và câu chúc vào modal
           modal.appendChild(giftImage);
