@@ -121,6 +121,39 @@
         pointer-events: none;
         width: 900;
       }
+      .gift-box {
+    position: absolute;
+    cursor: pointer;
+}
+
+#giftBox1 {
+    top: 60%;
+    left: 35%;
+}
+
+#giftBox2 {
+    top: 50%;
+    left: 60%;
+}
+      .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.large-gift-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
       .snowman-image {
         text-align: center;
         white-space: nowrap;
@@ -254,39 +287,26 @@
             alt="Artwork 3"
             class="tree-image responsive-image"
           />
+          <div class="gift-box" id="giftBox1">
+    <img src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/9f3dff68-cbc9-47a2-ae09-08c24f55fb7f.image.png?v=1701676663630" alt="Gift 1" class="gift-image" />
+</div>
+
+<div class="gift-box" id="giftBox2">
+    <img src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/9f3dff68-cbc9-47a2-ae09-08c24f55fb7f.image.png?v=1701676663630" alt="Gift 2" class="gift-image" />
+</div>
           <img
             id="imageSleigh"
             src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/a970702f-ddf0-4990-ba46-59fe85c98aa5.image.png?v=1701576629574"
             alt="Artwork 4"
             class="sleigh-image responsive-image"
           />
-<div>
-  <a href="https://www.messenger.com/t/100032021744190">
-            <img
-              width="50"
-              src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/2997f426-95d2-476e-be85-e90761809599.image.png?v=1701579940873"
-              alt="Mess"
-              class="centered-images responsive-image"
-              style="display: inline-block; margin-right: 10px"
-            />
-          </a>
-          <a href="https://www.facebook.com/anphuoc.dao">
-            <img
-              width="50"
-              src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/1d6015ad-dc40-40c8-84af-19dc210cd2bd.image.png?v=1701580115710"
-              alt="Face"
-              class="centered-images responsive-image"
-              style="display: inline-block"
-            />
-          </a>
-          </div>
           
         </div>
       </section>
 
       <audio id="backgroundMusic" controls autoplay loop>
         <source
-          src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/THE%20REAL%20SLIM%20SHADY%20%20Medieval%20Bardcore%20Version%20%20Eminem%20vs%20Beedle%20the%20Bardcore.mp3?v=1701275390604"
+          src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/Jingle%20Bell%20Rock%20%20%20Be%20The%20Pianist%20.mp3?v=1701676193245"
           type="audio/mpeg"
         />
         Your browser does not support the audio element.
@@ -344,6 +364,39 @@
 
           // Loại bỏ lớp tạm thời từ body
           document.body.classList.remove("initial-background");
+        
+        document.addEventListener("DOMContentLoaded", function () {
+    // Lấy danh sách các hộp quà
+    const giftBoxes = document.querySelectorAll(".gift-box");
+
+    // Thêm sự kiện cho mỗi hộp quà
+    giftBoxes.forEach(function (giftBox, index) {
+        giftBox.addEventListener("click", function () {
+            // Hiển thị hình ảnh tương ứng với hộp quà
+            showGiftImage(index + 1); // Chú ý: index + 1 vì index bắt đầu từ 0
+        });
+    });
+
+    // Hàm hiển thị hình ảnh tương ứng với hộp quà
+    function showGiftImage(giftNumber) {
+        const giftImage = document.createElement("img");
+        giftImage.src = `link_to_large_gift_image${giftNumber}.jpg`; // Thay đổi đường link phù hợp
+        giftImage.alt = `Large Gift ${giftNumber}`;
+        giftImage.classList.add("large-gift-image");
+
+        // Hiển thị hình ảnh trong một cửa sổ modal (popup)
+        const modal = document.createElement("div");
+        modal.classList.add("modal");
+        modal.appendChild(giftImage);
+        document.body.appendChild(modal);
+
+        // Thêm sự kiện để đóng modal khi bấm vào hình ảnh
+        giftImage.addEventListener("click", function () {
+            document.body.removeChild(modal);
+        });
+    }
+});
+
         });
     </script>
   </body>
