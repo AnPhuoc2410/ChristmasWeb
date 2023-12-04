@@ -158,6 +158,20 @@
         max-height: 50%;
         margin-bottom: 20px;
       }
+      .greeting-text {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        font-family: "Arial", sans-serif;
+        color: #333; /* Màu chữ */
+        font-size: 16px; /* Kích thước chữ */
+        text-align: center; /* Canh lề chữ */
+      }
 
       .snowman-image {
         text-align: center;
@@ -292,7 +306,11 @@
             alt="Artwork 3"
             class="tree-image responsive-image"
           />
-          <div class="gift-box" id="giftBox1" data-image="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/snowman.png?v=1701512663318">
+          <div
+            class="gift-box"
+            id="giftBox1"
+            data-image="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/snowman.png?v=1701512663318"
+          >
             <img
               src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/9f3dff68-cbc9-47a2-ae09-08c24f55fb7f.image.png?v=1701676663630"
               alt="Gift 1"
@@ -300,7 +318,11 @@
             />
           </div>
 
-          <div class="gift-box" id="giftBox2" data-image="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/cee355cf-23b9-46b2-a0f5-c87469d4c96c.image.png?v=1701572732607">
+          <div
+            class="gift-box"
+            id="giftBox2"
+            data-image="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/cee355cf-23b9-46b2-a0f5-c87469d4c96c.image.png?v=1701572732607"
+          >
             <img
               src="https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/9f3dff68-cbc9-47a2-ae09-08c24f55fb7f.image.png?v=1701676663630"
               alt="Gift 2"
@@ -345,26 +367,27 @@
           });
         });
 
-        
         // Hàm hiển thị hình ảnh và câu chúc tương ứng với hộp quà
         function showGiftContent(giftNumber) {
           // Lấy tham chiếu đến hộp quà
-    const giftBox = document.getElementById(`giftBox${giftNumber}`);
-    // Lấy đường link hình ảnh từ thuộc tính data-image
-    const giftImageSrc = giftBox.getAttribute("data-image");
+          const giftBox = document.getElementById(`giftBox${giftNumber}`);
+          // Lấy đường link hình ảnh từ thuộc tính data-image
+          const giftImageSrc = giftBox.getAttribute("data-image");
           // Tạo modal chứa hình ảnh và câu chúc
           const modal = document.createElement("div");
           modal.classList.add("modal");
 
           // Hình ảnh quà
-    const giftImage = document.createElement("img");
-    giftImage.src = giftImageSrc;
-    giftImage.alt = `Large Gift ${giftNumber}`;
-    giftImage.classList.add("large-gift-image");
+          const giftImage = document.createElement("img");
+          giftImage.src = giftImageSrc;
+          giftImage.alt = `Large Gift ${giftNumber}`;
+          giftImage.classList.add("large-gift-image");
 
           // Câu chúc
           const greetingText = document.createElement("p");
-          greetingText.innerText = getGreetingText(giftNumber); // Hàm này trả về câu chúc tương ứng
+    greetingText.innerText = getGreetingText(giftNumber);
+    greetingText.classList.add("greeting-text"); //trả về câu chúc bằng class "greeting-text"
+          
 
           // Thêm hình ảnh và câu chúc vào modal
           modal.appendChild(giftImage);
@@ -379,8 +402,6 @@
           });
         }
 
-        
-        
         // Hàm trả về câu chúc tương ứng với hộp quà
         function getGreetingText(giftNumber) {
           // Bạn có thể thay đổi câu chúc tại đây cho mỗi hộp quà
