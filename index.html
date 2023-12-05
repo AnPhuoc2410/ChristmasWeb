@@ -439,6 +439,11 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         
+        document.getElementById("imageSnowman").addEventListener("click", function () {
+          console.log("Snowman image clicked!");
+  this.src = "https://media.giphy.com/media/9w475hDWEPVlu/giphy.gif"; 
+});
+        
         // Lấy danh sách các hộp quà
         const giftBoxes = document.querySelectorAll(".gift-box");
 
@@ -503,9 +508,7 @@
               return "Chúc bạn có một mùa Giáng Sinh tràn đầy niềm vui!";
           }
         }
-        document.getElementById("imageSnowman").addEventListener("click", function () {
-  this.src = "https://media.giphy.com/media/9w475hDWEPVlu/giphy.gif"; 
-});
+        
       });
       
       document
