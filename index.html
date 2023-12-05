@@ -44,6 +44,7 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         position: relative;
+        backdrop-filter: blur(10px);
       }
 
       .snowflake {
@@ -438,6 +439,8 @@
       document.getElementById("backgroundMusic").pause();
 
       document.addEventListener("DOMContentLoaded", function () {
+        
+        document.getElementById("imageSnowman").addEventListener("click", function () {
         // Lấy danh sách các hộp quà
         const giftBoxes = document.querySelectorAll(".gift-box");
 
@@ -503,14 +506,6 @@
           }
         }
       });
-      
-      document
-        .getElementById("imageSnowman")
-        .addEventListener("click",function(){
-    // Thực hiện hành động khi click vào hình ảnh tuyết người tuyết
-    alert("Snowman image clicked!"); // Bạn có thể thay đổi hành động này thành cái gì đó khác
-});
-
       
       document
         .getElementById("christmasButton")
