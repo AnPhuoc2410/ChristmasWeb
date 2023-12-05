@@ -209,7 +209,6 @@
         transform: translate(-50%, -50%);
         margin: -15px 0 0 0;
         padding: 0;
-        pointer-events: none;
         width: auto;
       }
       .sleigh-image {
@@ -439,8 +438,8 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         
-        document.getElementById("imageSnowman").addEventListener("click", function () {
-          console.log("Snowman image clicked!");
+        const snowman = document.getElementById("imageSnowman")
+          snowman.addEventListener("click", function () {
   this.src = "https://media.giphy.com/media/9w475hDWEPVlu/giphy.gif"; 
 });
         
