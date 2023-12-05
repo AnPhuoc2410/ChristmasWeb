@@ -440,7 +440,6 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         
-        document.getElementById("imageSnowman").addEventListener("click", function () {
         // Lấy danh sách các hộp quà
         const giftBoxes = document.querySelectorAll(".gift-box");
 
@@ -505,6 +504,10 @@
               return "Chúc bạn có một mùa Giáng Sinh tràn đầy niềm vui!";
           }
         }
+        document.getElementById("imageSanta").addEventListener("click", function(){
+        // Thực hiện hành động khi click vào hình ảnh ông già Noel
+        alert("Santa image clicked!");
+    });
       });
       
       document
