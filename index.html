@@ -20,7 +20,7 @@
     <style>
       body {
         font-family: "Arial", sans-serif;
-        background: url("https://www.wallpaperup.com/uploads/wallpapers/2017/12/15/1167470/61dac6f197d1c98765c550d38b4f4d71.jpg")
+        background: url("https://cdn.glitch.global/91204bca-8843-4cb8-bf6f-1b414d6c21d5/d07e0d68-02c3-4eaf-8835-7f395d317b85.image.png?v=1702457199449")
           no-repeat center center fixed;
         background-size: cover;
         text-align: center;
@@ -39,6 +39,7 @@
 
       #mainContent {
         display: none;
+        background:center fixed;
         background-color: rgba(255, 255, 255, 0.8);
         padding: 20px;
         border-radius: 10px;
@@ -88,16 +89,15 @@
           width: 100%;
         }
         .column {
-        width: 100%; /* 1 cột trên một hàng khi màn hình nhỏ hơn 600px */
-          float:left;
-    }
+          width: 100%; /* 1 cột trên một hàng khi màn hình nhỏ hơn 600px */
+          float: left;
+        }
       }
-  .centered-images {
+      .centered-images {
         position: relative;
-    left:10%;
+        left: 10%;
       }
-      
-     
+
       .santaclaus-image {
         text-align: center;
         white-space: nowrap;
@@ -129,6 +129,7 @@
       .gift-box {
         position: absolute;
         cursor: pointer;
+        background:center fixed;
       }
 
       #giftBox1 {
@@ -261,10 +262,9 @@
   </head>
 
   <body>
-      <div class="centerer">
-        <a href="#" class="button" id="christmasButton">Christmas Button</a>
-      </div>
-
+    <div class="centerer">
+      <a href="#" class="button" id="christmasButton">Christmas Button</a>
+    </div>
 
     <div id="mainContent">
       <ul class="lightrope">
@@ -437,12 +437,12 @@
       document.getElementById("backgroundMusic").pause();
 
       document.addEventListener("DOMContentLoaded", function () {
-        
-        const snowman = document.getElementById("imageSnowman")
-          snowman.addEventListener("click", function () {
-  this.src = "https://media.giphy.com/media/1BA60Qu4ooaHpTHBep/giphy.gif"; 
-});
-        
+        const snowman = document.getElementById("imageSnowman");
+        snowman.addEventListener("click", function () {
+          this.src =
+            "https://media.giphy.com/media/1BA60Qu4ooaHpTHBep/giphy.gif";
+        });
+
         // Lấy danh sách các hộp quà
         const giftBoxes = document.querySelectorAll(".gift-box");
 
@@ -507,9 +507,8 @@
               return "Chúc bạn có một mùa Giáng Sinh tràn đầy niềm vui!";
           }
         }
-        
       });
-      
+
       document
         .getElementById("christmasButton")
         .addEventListener("click", function () {
